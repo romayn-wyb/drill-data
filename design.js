@@ -252,6 +252,9 @@ design.prototype = {
     //重置绘制(触发取消绘制)
     resetDraw: function () {
         var me = this;
+
+        me.cancelDraw();
+        return
         layer.confirm('确定重置此条设计么？', {
             btn: ['确定', '取消']
         }, function (index) {
@@ -326,7 +329,7 @@ design.prototype = {
             ranges = subway.options.ranges;
         var _d;
         var repeat;
-
+        
         if (!me.d && !me.path) {
             layer.msg("没有开启绘制", { time: 900 });
             return;
